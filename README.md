@@ -130,11 +130,17 @@ This work has been published in [IEEE Robotics and Automation Letters (RAL)](htt
 Before running CL4Nav, make sure you choose the correct running configurations. You can change the running configurations by passing keyword arguments to the ```run.py``` file.
 
 ```python
-$ python run.py -rgb-path ./datasets/RGB -depth-path ./datasets/Depth --dataset-name uav
+python run.py -rgb-path ./datasets/RGB -depth-path ./datasets/Depth --dataset-name uav
 ```
 If you want to run it on CPU (for debugging purposes) use the ```--disable-cuda``` option.
 
 For 16-bit precision GPU training, there **NO** need to to install [NVIDIA apex](https://github.com/NVIDIA/apex). Just use the ```--fp16_precision``` flag and this implementation will use [Pytorch built in AMP training](https://pytorch.org/docs/stable/notes/amp_examples.html).
+
+After training is completed, results will be saved in the `runs/` directory.  
+To visualize your loss curves and training metrics using TensorBoard, run the following command:
+```bash
+tensorboard --logdir=path/to/your/runs
+```
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
